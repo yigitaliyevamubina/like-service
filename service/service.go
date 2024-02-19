@@ -18,7 +18,6 @@ type LikeService struct {
 	storage storage.IStorage
 	logger  logger.Logger
 	client  grpcclient.IServiceManager
-	pb.UnimplementedLikeServiceServer
 }
 
 func NewLikeService(db *sql.DB, log logger.Logger, client grpcclient.IServiceManager) *LikeService {
@@ -26,7 +25,6 @@ func NewLikeService(db *sql.DB, log logger.Logger, client grpcclient.IServiceMan
 		storage:                        storage.NewStoragePg(db),
 		logger:                         log,
 		client:                         client,
-		UnimplementedLikeServiceServer: pb.UnimplementedLikeServiceServer{},
 	}
 }
 
